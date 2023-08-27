@@ -64,8 +64,13 @@ public class MovieRepository {
             directorDB.remove(dirName);
         }
         if(pairDB.containsKey(dirName)){
+            List<String> list = pairDB.get(dirName);
+            for(String movie : list){
+                movieDB.remove(movie);
+            }
             pairDB.remove(dirName);
         }
+
     }
 
     public void deleteAllDirectors() {
@@ -74,6 +79,11 @@ public class MovieRepository {
             directorDB.remove(d);
         }
         for (String d : pairDB.keySet()){
+            List<String> list = pairDB.get(d);
+
+            for (String movie : list){
+                movieDB.remove(movie);
+            }
             pairDB.remove(d);
         }
 
