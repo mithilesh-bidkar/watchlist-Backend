@@ -30,4 +30,52 @@ public class MovieRepository {
             pairDB.put(dirName,list);
         }
     }
+
+    public Movie getMovieByName(String movieName) {
+
+        return movieDB.get(movieName);
+    }
+
+    public Director getDirectorName(String directorName) {
+
+        return directorDB.get(directorName);
+    }
+
+    public List<String> getMoviesByDirectorName(String dirName) {
+
+        return pairDB.get(dirName);
+    }
+
+    public List<Movie> findAllMovies() {
+
+        List<Movie> list = new ArrayList<>();
+
+        for(Movie movie : movieDB.values()){
+            list.add(movie);
+        }
+
+        return list;
+    }
+
+
+    public void deleteDirectorByName(String dirName) {
+
+        if (directorDB.containsKey(dirName)){
+            directorDB.remove(dirName);
+        }
+        if(pairDB.containsKey(dirName)){
+            pairDB.remove(dirName);
+        }
+    }
+
+    public void deleteAllDirectors() {
+
+        for (String d : directorDB.keySet()){
+            directorDB.remove(d);
+        }
+        for (String d : pairDB.keySet()){
+            pairDB.remove(d);
+        }
+
+    }
 }
