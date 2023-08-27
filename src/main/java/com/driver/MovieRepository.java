@@ -46,11 +46,11 @@ public class MovieRepository {
         return pairDB.get(dirName);
     }
 
-    public List<Movie> findAllMovies() {
+    public List<String> findAllMovies() {
 
-        List<Movie> list = new ArrayList<>();
+        List<String> list = new ArrayList<>();
 
-        for(Movie movie : movieDB.values()){
+        for(String movie : movieDB.keySet()){
             list.add(movie);
         }
 

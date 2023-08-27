@@ -41,7 +41,7 @@ public class MovieService {
         return movieRepository.getMoviesByDirectorName(dirName);
     }
 
-    public List<Movie> findAllMovies() {
+    public List<String> findAllMovies() {
 
         return  movieRepository.findAllMovies();
     }
